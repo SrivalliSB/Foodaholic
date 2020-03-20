@@ -1,0 +1,53 @@
+{% extends 'base1.html' %}
+{% block body %}
+<body>
+	<br>
+	<div class="container" >
+        <div class="row">
+            <div class="col-md-6" style="margin-right: 20px;">
+		<h3>My new recipe</h3>
+		<hr>
+		<form action="" method="POST">
+			{%csrf_token %}
+            <p>Title</p>
+            <input type="text" class="form-control" name="title">
+            <br>
+            <p>Image url</p>
+            <textarea class="form-control" name="image_url"></textarea>
+            <br>
+			<p>Description</p>
+			<textarea class="form-control" name="description"></textarea>
+            <br>
+            <p>Time to cook</p>
+            <input type="text" class="form-control" name="time_to_cook">
+            <br>
+           
+            </div>
+            <div class="col-md-4"> 
+                <br>
+                <br>
+                <br>
+                <p>Ingredients</p>
+                <textarea class="form-control" name="ingredients"></textarea>
+                <br>
+            <p>Preperation method</p>
+            <textarea class="form-control" name="prep_method"></textarea>
+            <br>
+            
+            <p>Dish type</p>
+            <select name="card_type">
+                <option value = "breakfast">Breakfast</option>
+                <option value = "lunch">Lunch</option>
+                <option value = "dinner">Dinner</option>
+            </select>
+            <br>
+            <br>
+            <p>Contribution</p>
+            <input type="text" class="form-control" name="contribution">
+            <br>
+            <button type="submit" class="btn btn-success">Submit recipe</button>
+            </div>
+		</form>
+    </div>
+	</div>
+{% endblock %}

@@ -1,0 +1,154 @@
+{% extends 'base1.html' %}
+{% block body %}
+<head>
+<style>
+.day{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.btn-success{
+    width: 220px;
+}
+.card-img-top{
+  display: grid;
+  height: 250px;
+  width: 286px;
+}
+.card-text{
+  width: fit-content;
+  height: fit-content;
+}
+
+</style>
+</head>
+<br>
+<div class="container">
+    <h1 style="align-items: center;font-weight: bolder; font-family:garamond; color: darkslategrey;">BEST FOOD RECIPES ARE AVAILABLE HERE</h1>
+    <br>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="height: 450px;">
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item"  style="height: 450px;">
+            <img src="https://images.unsplash.com/photo-1544982590-068dabc956dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item"  style="height: 450px;">
+            <img src="https://ratlamee.com/wp-content/uploads/2018/10/Sweet-Corn-Soup.jpg" class="d-block w-100" alt="...">
+           
+          </div>
+          <div class="carousel-item"  style="height: 450px;">
+            <img src="https://hdwallsource.com/img/2014/6/food-wallpaper-5775-5940-hd-wallpapers.jpg" class="d-block w-100" alt="...">
+           
+          </div>
+          <div class="carousel-item"  style="height: 400px;">
+            <img src="https://farm8.staticflickr.com/7778/17269216874_f4d1057324_z.jpg" class="d-block w-100" alt="...">
+           
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <br>
+      <h2 style="font-family: serif; font-weight: bold;">RECIPES OF THE DAY</h2>
+      <div class="day">
+   
+      {% for i in item %}
+      {% if i.card_type == 'day' %}
+      <form action="/food/{{i.id}}/" method="POST">
+        {%csrf_token %}
+      <div class="card" id="shadow" style="width: 20rem; margin: 6px;">
+        <img src="{{i.image_url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{i.title}}</h5>
+          <p class="card-text">{{i.description|truncatechars:50}}</p>
+          <button class="btn btn-primary" type="submit">See the full recipe >></button>
+        </div>
+      </div>
+     </form>
+     {% endif %}
+      {% endfor %} 
+      
+      </div>
+      <hr>
+      <br>
+     <h2 style="font-weight: bolder; font-family: serif; background-color:rgb(224, 174, 195); width: fit-content;">Breakfast recipes    </h2>
+      <div class="day">
+   
+      {% for i in item %}
+      {% if i.card_type == 'breakfast' %}
+      
+      <form action="/food/{{i.id}}/" method="POST">
+        {%csrf_token %}
+      <div class="card" style="width: 18rem; margin: 6px;">
+        <img src="{{i.image_url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{i.title}}</h5>
+          <p class="card-text">{{i.description|truncatechars:50}}</p>
+          <button class="btn btn-success" type="submit">Try this >></button>
+        </div>
+      </div>
+     </form>
+     {% endif %}
+      {% endfor %} 
+      
+      </div>
+
+      <hr>
+      <br>
+     <h2 style="font-weight: bolder; font-family: serif; background-color:rgb(159, 241, 159); width: fit-content;">Healthy Lunch Recipes</h2>
+      <div class="day">
+   
+      {% for i in item %}
+      {% if i.card_type == 'lunch' %}
+      <form action="/food/{{i.id}}/" method="POST">
+        {%csrf_token %}
+      <div class="card" style="width: 18rem; margin: 6px;">
+        <img src="{{i.image_url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{i.title}}</h5>
+          <p class="card-text">{{i.description|truncatechars:50}}</p>
+          <button class="btn btn-info" type="submit">See how to cook >></button>
+        </div>
+      </div>
+     </form>
+     {% endif %}
+      {% endfor %} 
+      
+      </div>
+      <hr>
+       <h2 style="font-weight: bolder; font-family: serif; background-color:gainsboro; width: fit-content;">Dinner recipes</h2>
+      <div class="day">
+   
+      {% for i in item %}
+      {% if i.card_type == 'dinner' %}
+      <form action="/food/{{i.id}}/" method="POST">
+        {%csrf_token %}
+      <div class="card" style="width: 18rem; margin: 6px;">
+        <img src="{{i.image_url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{i.title}}</h5>
+          <p class="card-text">{{i.description|truncatechars:50}}</p>
+          <button class="btn btn-primary" type="submit">See the full recipe >></button>
+        </div>
+      </div>
+     </form>
+     {% endif %}
+      {% endfor %} 
+      
+      </div>
+      <hr>
+      <br>
+</div>
+      <div class="card-footer text-muted" style="display:flex; align-items: center; justify-content: center;">
+        <p> Copyrights  reserved <i class="material-icons">copyright</i> 2020</p>
+      </div>
+ 
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <title>signin page</title>
+  <style>
+    *{margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url(https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&w=1000&q=80);
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h1{
+    font-size: 50px;
+    color: rgb(92, 63, 63);
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 430px;
+    
+}
+.col-md-5{
+    background: rgba(0, 0,0, 0,5);
+    margin-top: 40px;
+    
+}
+.control-label{
+  margin-left:170px ;
+  margin-top: 130px;
+}
+.label1{
+  margin-left:170px ;
+}
+.input-group-addon{
+  background: transparent;
+  border-radius: 0px;
+  border-bottom: 1px solid grey;
+  font-size: 18px;
+  color: grey;
+}
+.form-control{
+  background: transparent;
+  border-radius: 0px;
+  border-bottom: 1px solid grey;
+  padding: 15px;
+}
+.btn-success{
+  border-radius: 2px;
+  width: 442px;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+  </style>
+</head>
+
+<div class="container"> 
+  <p style="margin-left: 1045px;">Logout?</p>
+  <a style=" padding:10px 10px ; margin-left: 1025px;" href='/signout/'> <button class="btn btn-sm btn-outline-secondary" type="button">LOGOUT</button></a>
+<form method="POST" action="">
+    {%csrf_token %}
+<div class="row">
+          <div>
+            <h1>SIGN IN</h1>
+            <p class="font-italic" style="margin-left: 350px; padding-top: -10px; font-size: 15px; font-weight: bold;">Signin to explore amazing cuisines...</p>
+            </div>
+            <div class="col-md-5"> 
+            <b><label class="label control-label">Username</label></b>
+            <div class="input-group"> 
+               <span class="input-group-addon">
+                <span class="glyphicon glyphicon-user">
+                </span>
+              </span>
+              <input type="text" class="form-control" name="username" placeholder="Username">
+          </div>
+          <b><label class="label1">Password</label></b>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-user">
+              </span>
+            </span>
+            <input type="password" class="form-control" name="password" placeholder="Password">
+           
+        </div>
+        <button class="btn btn-success" >SIGN IN</div></button>
+       </div>
+</div>
+</form>
+
+
+{% endblock %}

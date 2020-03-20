@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block body %}
+<head>
+  <title>signup page</title>
+  <style>
+    *{margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url(https://images.unsplash.com/photo-1498579809087-ef1e558fd1da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+    background-attachment:fixed;
+    background-size:cover;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h1{
+    font-size: 50px;
+    color:black;
+    margin-top: 78px;
+    margin-bottom: 30px;
+    margin-left: 320px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+ .col-md-5{
+    background: rgba(0, 0,0, 0,8);
+    /* margin-top: 20px; */
+    margin-left: 240px;
+    
+} 
+.form-row{
+    margin-left: 150px;
+}
+.forms{
+    width: 638px;
+    margin-left: 154px;
+}
+.control-label{
+  margin-left:0px ;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100px;
+}
+.form-control{
+  background: transparent;
+  border-radius: 0px;
+  border-bottom: 1px solid grey;
+  padding: 15px;
+}
+.btn-primary{
+  border-radius: 2px;
+  width: 202px;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+  </style>
+</head>
+<div class="container"> 
+<form action=""  method="POST" >
+    {% csrf_token %}
+<!-- <div class="row"> -->
+            <h1>SIGN UP HERE...</h1>
+        <div class="form-row">
+                <div class="form-group col-md-4">
+                <b><label class="label control-label">Firstname</label></b>
+                <br>
+              <input type="text" class="form-control" name="fname" placeholder="Firstname">
+        </div>
+        <div class="form-group col-md-4">
+            <b><label class="label control-label">Lastname</label></b>
+            <br>
+            <input type="text" class="form-control" name="lname" placeholder="Lastname">
+          
+        </div>
+        </div>
+        <div class="forms">
+            <b><label class="label control-label">Username</label></b>
+            <br>
+            <input type="text" class="form-control" name="username" placeholder="Username">
+        </div>
+        <br>
+        <div class="forms">
+            <b><label class="label control-label">Password</label></b>
+            <br>
+
+            <input type="password" class="form-control" name="password" placeholder="Password">
+        
+        </div>
+            <br>
+        <div class="forms">
+        <b><label class="label control-label">Email-id</label></b>
+        <br>
+        <input type="email" class="form-control" name="email" placeholder="Email-id">
+        </div>
+        <div class="forms" style="margin-left: 340px;">
+           <button type="submit" class="btn btn-primary">Signup</button>
+        </div> 
+</form>
+
+</div>
+{% endblock %}

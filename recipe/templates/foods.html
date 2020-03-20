@@ -1,0 +1,38 @@
+{% extends 'base1.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6" style="margin-right: 20px;">
+            <div class="vl">
+            <h1>
+                {{dish.title}}
+            </h1>
+            <img class="image_size" src="{{dish.image_url}}" alt="">
+            <br>
+            <br>
+            <h4>Cooking time:</h4>
+            <p>{{dish.time_to_cook}}</p>
+            <br>
+            <div class="ingredients">
+            <h4>Ingredients:</h4>
+            <br>
+            <p>{{dish.ingredients|linebreaksbr}}</p> 
+            </div>
+            <br>
+        </div>
+        </div>
+     
+        <div class="col-md-4"> 
+           
+            <h4 style="margin: 40px;">Directions to cook</h4>
+            <p style="margin: 40px;">{{dish.prep_method|linebreaksbr}}</p>
+            <br>
+            
+        </div>
+    </div>
+</div>
+ 
+
+
+{% endblock %}
